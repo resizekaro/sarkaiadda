@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar with Dark/Light Mode</title>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #000000;
+            --nav-bg: #f8f9fa;
+            --hover-color: #ff4d4d;
+        }
+
+        .dark-mode {
+            --bg-color: #121212;
+            --text-color: #ffffff;
+            --nav-bg: #1e1e1e;
+            --hover-color: #ffcc00;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--nav-bg);
+            padding: 12px 25px;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: bold;
+            color: var(--text-color);
+            display: flex;
+            align-items: center;
+        }
+
+        .logo i {
+            margin-right: 8px;
+            color: red;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        .nav-links li {
+            display: inline;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-size: 16px;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--hover-color);
+        }
+
+        .icons {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .icons i {
+            cursor: pointer;
+            font-size: 18px;
+            color: var(--text-color);
+            transition: 0.3s;
+        }
+
+        .icons i:hover {
+            color: var(--hover-color);
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">
+            <i class="fas fa-landmark"></i> Sarkari Result
+        </div>
+        <ul class="nav-links">
+            <li><a href="#">Latest Jobs</a></li>
+            <li><a href="#">Results</a></li>
+            <li><a href="admitcard.html">Admit Card</a></li>
+        </ul>
+        <div class="icons">
+            <i class="fas fa-moon" id="themeToggle"></i>
+            <i class="fas fa-bell"></i>
+            <i class="fas fa-user"></i>
+        </div>
+    </nav>
+
+    <script>
+        document.getElementById('themeToggle').addEventListener('click', function () {
+            document.body.classList.toggle('dark-mode');
+            this.classList.toggle('fa-moon');
+            this.classList.toggle('fa-sun');
+        });
+    </script>
+
+</body>
+</html>
